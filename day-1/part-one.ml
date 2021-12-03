@@ -8,11 +8,11 @@ let larger_measurements = ref 0;;
 
 let rec read_file f result last value =
   	match last with
-      		| None -> read_file f result (Some value) (int_of_string (input_line f))
+            | None -> read_file f result (Some value) (int_of_string (input_line f))
             | Some last_val -> if value > last_val then (
                                    result := !result + 1;
-  		                   	       read_file f result (Some value) (int_of_string (input_line f))
-  		                       ) else read_file f result (Some value) (int_of_string (input_line f));;
+                                   read_file f result (Some value) (int_of_string (input_line f))
+                               ) else read_file f result (Some value) (int_of_string (input_line f));;
 
 let () =
     try
@@ -21,4 +21,3 @@ let () =
         close_in f;
         print_int !larger_measurements;
         print_newline ()
-
