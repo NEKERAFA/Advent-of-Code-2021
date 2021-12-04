@@ -23,12 +23,12 @@ function calculategamma(data)
     bitsum["0"] = {}
     bitsum["1"] = {}
 
-    for i = 1, #data do
-        for j = 1, #data[i] do
-            if data[i][j] == 1 then
-                bitsum["1"][j] = 1 + (bitsum["1"][j] or 0)
+    for i, number in ipairs(data) do
+        for j, bit in ipairs(number) do
+            if bit == 1 then
+                bitsum["1"][j] = 1 + (bitsum["1"][j] or 1)
             else
-                bitsum["0"][j] = 1 + (bitsum["0"][j] or 0)
+                bitsum["0"][j] = 1 + (bitsum["0"][j] or 1)
             end
         end
     end
